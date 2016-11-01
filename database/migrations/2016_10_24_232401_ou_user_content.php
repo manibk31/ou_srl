@@ -15,7 +15,7 @@ class OuUserContent extends Migration
     {
         Schema::create('ou_user_content', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id')->unique();
+            $table->string('email')->unique();
             $table->string('heading')->nullable();
             $table->string('content')->nullable();
             $table->integer('priority')->nullable();
