@@ -1,0 +1,27 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# Explicit paths specified without -i or -o; assuming --only paths...
+# On branch Branch_before_changing_ou_user_basic_to_User
+# Your branch is up-to-date with 'origin/Branch_before_changing_ou_user_basic_to_User'.
+#
+# Changes to be committed:
+#	modified:   app/Http/Controllers/AuthController.php
+#	modified:   app/ou_user.php
+#	modified:   database/migrations/2016_10_24_232237_ou_user.php
+#	modified:   database/migrations/2016_10_24_232329_ou_user_basic.php
+#	modified:   public/css/app.css
+#	modified:   public/js/app.js
+#	modified:   resources/views/home.blade.php
+#	modified:   resources/views/signup.blade.php
+#	modified:   resources/views/templates/default.blade.php
+#	modified:   routes/web.php
+#
+# Untracked files:
+#	app/Http/Controllers/BasicDetailsController.php
+#	public/css/bootstrap/
+#	public/images/
+#	public/js/jquery.js
+#	resources/views/templates/footer.blade.php
+#	resources/views/templates/header.blade.php
+#
