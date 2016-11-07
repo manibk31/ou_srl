@@ -15,3 +15,5 @@ Route::get('/', array('as'=>'/','uses'=> 'AuthController@getSignUp'));
 Route::post('/signup',array('as'=>'signup','uses'=>'AuthController@postSignUp'));
 Route::post('/signin',array('as'=>'signin','uses'=>'AuthController@postSignIn'));
 Route::get('/home', array('as'=>'home','uses'=> 'AuthController@getHome'));
+Route::get('/signout',array('as'=>'signout','uses'=>'AuthController@signOut'));
+Route::post('/update',array('as'=>'update','uses'=>'BasicDetailsController@postBasicDetails'));

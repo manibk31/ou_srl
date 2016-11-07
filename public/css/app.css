@@ -1,6 +1,126 @@
  .message
 {
+      margin-top: 50px;
+}
+.margin-top
+{
+  margin-top: 50px;
+}
+.margin-top-25
+{
+  margin-top:25px;
+}
+.margin-bottom-100{
+  margin-bottom:100px;
+}
 
-    margin-top: 50px;
+
+
+/*OU_Header and Footer Styles Begin*/
+
+.ou_red
+{
+    background-color:#851816 !important;
+}
+#header .banner
+{
 
 }
+#header #search
+{
+    color:white;
+    top:0px;
+}
+// Classes
+.pull-left {
+  float: left !important;
+}
+.pull-right {
+  float: right !important;
+}
+
+// Usage as mixins
+.element {
+  .pull-left();
+}
+.another-element {
+  .pull-right();
+}
+#searchbox {
+    background-color:rgba(0, 0, 0, 0);
+    color:white;
+    border: none;
+    outline:none;
+    height:30px;
+
+}
+
+#header button
+{
+     background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+.footer-block {
+    background: #333;
+    border-top: 1px solid #666;
+    color: #999;
+    width: 100%;
+    padding: 40px 0px 20px;
+}
+.show {
+        display: block;
+    }
+footer {
+    margin-top: 0px;
+}
+footer {
+    background: #fff;
+    border-top: 1px solid #ddd;
+    padding: 20px 0;
+    margin-top: 40px;
+    color: #777;
+}
+.centered-text {
+    text-align:center;
+    align-content: center;
+}
+footer ul
+{
+list-style: none;
+
+}
+footer ul li a:link, a:visited, a:active
+{
+    text-decoration: none;
+    color:white;
+
+}
+footer ul li a:hover
+{
+    color:#999
+}
+footer button
+{
+     background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+ hr
+{
+  display: block;
+    height: 3px;
+    border: 0;
+    border-top: 2px solid white;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+/* End oF OU Header and Footer Styles

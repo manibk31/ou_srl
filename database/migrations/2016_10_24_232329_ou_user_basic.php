@@ -18,6 +18,7 @@ class OuUserBasic extends Migration
             $table->increments('id');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('remember_token')->nullable();
             $table->timestamps();
         });
     }

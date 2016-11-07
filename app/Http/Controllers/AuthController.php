@@ -7,13 +7,21 @@ use Auth;
 use App\User;
 use App\Http\Requests;
 use Session;
+use App\ou_user;
 
 class AuthController extends Controller
 {
    //
     function getsignUp()
     {
+        if(Session::has('email'))
+        {
+          return redirect()->route('home');
+        }
+        else
+        {
         return view('signup');
+      }
     }
     function postSignUp(Request $request)
     {
@@ -28,6 +36,9 @@ class AuthController extends Controller
         $user->email=$request->input('email');
         $user->password=bcrypt($request->input('password'));
         $user->save();
+        $ou_user=new ou_user;
+        $ou_user->email=$request->input('email');
+        $ou_user->save();
 
 
          return redirect()
@@ -53,10 +64,22 @@ function postSignIn(Request $request)
 function getHome(){
   if(Session::has('email'))
   {
-    return view('home');
+    $email=Session::get('email');
+    $user_details=ou_user::where('email',$email)->first();
+    return view('home')->with('user',$user_details);
   }
   else {
   return redirect()->route('/')->with('info','Please Signin to continue.');
   }
+}
+function signOut(){
+  if(Session::has('email'))
+  {
+  Session::flush();
+  return redirect()->route('/')->with('info','Signed out successfully');
+}
+else {
+  return redirect()->route('/');
+}
 }
 }

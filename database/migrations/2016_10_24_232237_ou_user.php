@@ -18,14 +18,14 @@ class OuUser extends Migration
         Schema::create('ou_user', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email')->unique();
-            $table->string('fullname');
-            $table->string('status');
-            $table->string('school');
-            $table->integer('phone');
-            $table->integer('fax')->nullable();
+            $table->string('fullname')->nullable();
+            $table->string('status')->nullable();
+            $table->string('school')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('fax')->nullable();
             $table->string('url')->nullable();
-            $table->string('office',500);
-            $table->string('remember_token')->nullable();
+            $table->string('office')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
 
