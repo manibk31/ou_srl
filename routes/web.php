@@ -11,4 +11,7 @@
 |
 */
 
-Route::get('/', 'AuthController@getSignUp');
+Route::get('/', array('as'=>'/','uses'=> 'AuthController@getSignUp'));
+Route::post('/signup',array('as'=>'signup','uses'=>'AuthController@postSignUp'));
+Route::post('/signin',array('as'=>'signin','uses'=>'AuthController@postSignIn'));
+Route::get('/home', array('as'=>'home','uses'=> 'AuthController@getHome'));

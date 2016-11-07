@@ -16,7 +16,6 @@ class OuUserBasic extends Migration
         //
          Schema::create('ou_user_basic', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id')->unique();
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();
