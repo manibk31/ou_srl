@@ -1,6 +1,8 @@
 $(function() {
 
 
+
+
     $("#signin").hide();
     $("form").submit(function(e) {
 
@@ -101,6 +103,7 @@ function validateEmailPassword(email, password, valid, action) {
 setTimeout(function() {
 $('.message').fadeOut();
 }, 5000 );
+
 $('#myTabs a').click(function (e) {
   e.preventDefault()
   $(this).tab('show')
@@ -253,3 +256,7 @@ function fax_regex(fax)
   var re=/[\+? *[1-9]+]?[0-9 ]+/;
   return re.test(fax);
 }
+$('#publication_tab a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+});

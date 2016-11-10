@@ -121,6 +121,6 @@ footer button
     margin: 1em 0;
     padding: 0;
 }
-
+ #editor {overflow:scroll; max-height:300px}
 
 /* End oF OU Header and Footer Styles

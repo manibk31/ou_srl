@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class OuUserContent extends Migration
+class OuExternalLinks extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class OuUserContent extends Migration
      */
     public function up()
     {
-        Schema::create('ou_user_content', function (Blueprint $table) {
+        //
+        Schema::create('ou_external_links', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('email')->unique();
-            $table->longText('education')->nullable();
-            $table->longText('about')->nullable();
-            $table->longText('research')->nullable();
+            $table->string('email')->nullable();
+            $table->string('caption')->nullable();
+            $table->text('url')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class OuUserContent extends Migration
     public function down()
     {
         //
-         Schema::drop('ou_user_content');
+        Schema::drop('ou_external_links');
     }
 }

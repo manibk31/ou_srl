@@ -7,8 +7,10 @@
         <title>OU Systems Realization Lab</title>
         <script  src={{asset('js/jquery.js')}}></script>
         <script src="{{asset('js/app.js')}}"></script>
+        <script src="{{asset('js/hotkeys.js')}}"></script>
+        <script src="{{asset('js/textarea.js')}}"></script>
         <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
-        <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">-->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
 
 

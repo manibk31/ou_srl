@@ -8,6 +8,9 @@ use App\User;
 use App\Http\Requests;
 use Session;
 use App\ou_user;
+use App\ou_publication;
+use App\ou_user_content;
+use App\ou_external_links;
 
 class AuthController extends Controller
 {
@@ -39,7 +42,15 @@ class AuthController extends Controller
         $ou_user=new ou_user;
         $ou_user->email=$request->input('email');
         $ou_user->save();
-
+        $user_content=new ou_user_content;
+        $user_content->email=$request->input('email');
+        $user_content->save();
+        $user_publication=new ou_publication;
+        $user_publication->email=$request->input('email');
+        $user_publication->save();
+        $user_links=new ou_external_links;
+        $user_links->email=$request->input('email');
+        $user_links->save();
 
          return redirect()
             ->route('/')
@@ -66,7 +77,15 @@ function getHome(){
   {
     $email=Session::get('email');
     $user_details=ou_user::where('email',$email)->first();
-    return view('home')->with('user',$user_details);
+    $publication_count=ou_publication::count(); 
+    if($publication_count==1)
+    {
+    $user_publication=ou_publication::where('email',$email)->first();
+    }
+    else {
+    $user_publication=ou_publication::where('email',$email)->get();
+    }
+    return view('home')->with('user',$user_details)->with('user_publications',$user_publication)->with('publication_count',$publication_count);
   }
   else {
   return redirect()->route('/')->with('info','Please Signin to continue.');

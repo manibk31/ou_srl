@@ -24,7 +24,7 @@ class OuUser extends Migration
             $table->string('phone')->nullable();
             $table->string('fax')->nullable();
             $table->string('url')->nullable();
-            $table->string('office')->nullable();
+            $table->mediumText('office')->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
         });
