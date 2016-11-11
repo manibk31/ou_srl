@@ -20,7 +20,7 @@ class OuPublication extends Migration
             $table->text('book')->nullable();
             $table->text('chapter')->nullable();
             $table->text('article')->nullable();
-            $table->text('coference')->nullable();
+            $table->text('conference')->nullable();
             $table->timestamps();
         });
     }

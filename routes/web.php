@@ -18,3 +18,5 @@ Route::get('/home', array('as'=>'home','uses'=> 'AuthController@getHome'));
 Route::get('/signout',array('as'=>'signout','uses'=>'AuthController@signOut'));
 Route::post('/update',array('as'=>'update','uses'=>'BasicDetailsController@postBasicDetails'));
 Route::post('/updatedetails',array('as'=>'update_details','uses'=>'EditController@postEditContent'));
+Route::post('/publication',array('as'=>'publication','uses'=>'EditController@handlePublication'));
+Route::post('/nopublication',array('as'=>'publication_nil','uses'=>'EditController@postNewPublication'));

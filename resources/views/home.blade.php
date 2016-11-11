@@ -1,8 +1,8 @@
 @extends('templates.default')
 @section('content')
 
-<div>
 
+<div>
 <!-- Nav tabs -->
 <ul class="nav nav-tabs col-md-10 col-md-offset-1" role="tablist" style="margin-top:25px;">
   <li role="presentation" class="active"><a href="#basic_details" aria-controls="basic_details" role="tab" data-toggle="tab">Basic Details</a></li>
@@ -86,15 +86,15 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">
           <label for="heading">Education</label>
-        <textarea rows="4" class="form-control"  name="education" required></textarea>
+        <textarea rows="4" class="form-control"   name="education" required>{{$edit_content->education}}</textarea>
         </div>
         <div class="form-group">
           <label for="heading">About</label>
-            <textarea rows="12" class="form-control"  name="about" required></textarea>
+            <textarea rows="12" class="form-control"   name="about" required>{{$edit_content->about}}</textarea>
         </div>
         <div class="form-group">
           <label for="heading">Research Interests</label>
-          <textarea rows="5" class="form-control"  name="research" required></textarea>
+          <textarea rows="5" class="form-control"   name="research" required>{{$edit_content->research}}</textarea>
         </div>
         <div class="form-group">
         <button type="submit" class="btn btn-default">Update</button>
@@ -110,11 +110,51 @@
     </div>
 
 
+@if($publication_count==0)
+<div id="publication" class="form-group">
+<form method="post" action="{{route('publication_nil')}}">
+   <input type="hidden" name="_token" value="{{ csrf_token() }}">
+<ul class="nav nav-tabs">
+<li class="active"><a data-toggle="pill" href="#book">Book</a></li>
+<li><a data-toggle="pill" href="#chapter">Chapter</a></li>
+<li><a data-toggle="pill" href="#article">Article</a></li>
+<li><a data-toggle="pill" href="#conference">Conference</a></li>
+</ul>
+
+<div class="tab-content" style="margin-top:10px;">
+
+<div id="book" class="tab-pane fade in active">
+<div class="form-group">
+<textarea rows="3" class="form-control"  name="book" required></textarea>
+</div>
+</div>
+<div id="chapter" class="tab-pane fade">
+<div class="form-group">
+<textarea rows="3" class="form-control"  name="chapter" required></textarea>
+</div>
+</div>
+<div id="article" class="tab-pane fade">
+<div class="form-group">
+<textarea rows="3" class="form-control"   name="article" required></textarea>
+</div>
+</div>
+<div id="conference" class="tab-pane fade">
+<div class="form-group">
+<textarea rows="3" class="form-control"   name="conference" required></textarea>
+</div>
+</div>
+</div>
+<div class="form-group">
+<button type="submit"  name="update" class="btn btn-default">Update</button>
+</div>
+</form>
+</div>
+@endif
 
 @if ($publication_count==1)
-
 <div id="publication" class="form-group">
-<form>
+<form method="post" action="{{route('publication')}}">
+   <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <ul class="nav nav-tabs">
 <li class="active"><a data-toggle="pill" href="#book">Book</a></li>
 <li><a data-toggle="pill" href="#chapter">Chapter</a></li>
@@ -127,28 +167,28 @@
 <div id="book" class="tab-pane fade in active">
 <input type="hidden" name="id" value="{{$user_publications->id}}" >
 <div class="form-group">
-<textarea rows="3" class="form-control"  name="book" required></textarea>
+<textarea rows="3" class="form-control"  name="book" required>{{$user_publications->book}}</textarea>
 </div>
 </div>
 <div id="chapter" class="tab-pane fade">
 <div class="form-group">
-<textarea rows="3" class="form-control"  name="chapter" required></textarea>
+<textarea rows="3" class="form-control"  name="chapter" required>{{$user_publications->chapter}}</textarea>
 </div>
 </div>
 <div id="article" class="tab-pane fade">
 <div class="form-group">
-<textarea rows="3" class="form-control"  name="article" required></textarea>
+<textarea rows="3" class="form-control"   name="article" required>{{$user_publications->article}}</textarea>
 </div>
 </div>
 <div id="conference" class="tab-pane fade">
 <div class="form-group">
-<textarea rows="3" class="form-control"  name="conference" required></textarea>
+<textarea rows="3" class="form-control"   name="conference" required>{{$user_publications->conference}}</textarea>
 </div>
 </div>
 </div>
 <div class="form-group">
-<button type="submit" class="btn btn-default">Update</button>
-<button  class="btn btn-default">Delete this entry</button>
+<button type="submit"  name="update" class="btn btn-default">Update</button>
+<button  type="submit" name="delete" class="btn btn-default">Delete this entry</button>
 </div>
 </form>
 </div>
@@ -159,7 +199,8 @@
 @foreach ($user_publications as $publication)
 
   <div id="publication" class="form-group">
-<form>
+<form method="post" action="{{route('publication')}}">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
 <ul class="nav nav-tabs">
 <li class="active"><a data-toggle="pill" href="#book">Book</a></li>
 <li><a data-toggle="pill" href="#chapter">Chapter</a></li>
@@ -172,28 +213,28 @@
 <div id="book" class="tab-pane fade in active">
 <input type="hidden" name="id" value="{{$publication->id}}">
 <div class="form-group">
-  <textarea rows="3" class="form-control"  name="book" required></textarea>
+  <textarea rows="3" class="form-control"  name="book" required>{{$publication->book}}</textarea>
 </div>
 </div>
 <div id="chapter" class="tab-pane fade">
 <div class="form-group">
-<textarea rows="3" class="form-control"  name="chapter" required></textarea>
+<textarea rows="3" class="form-control"    name="chapter" required>{{$publication->chapter}}</textarea>
 </div>
 </div>
 <div id="article" class="tab-pane fade">
 <div class="form-group">
-<textarea rows="3" class="form-control"  name="article" required></textarea>
+<textarea rows="3" class="form-control"   name="article" required>{{$publication->article}}</textarea>
 </div>
 </div>
 <div id="conference" class="tab-pane fade">
 <div class="form-group">
-<textarea rows="3" class="form-control"  name="conference" required></textarea>
+<textarea rows="3" class="form-control"  name="conference" required>{{$publication->conference}}</textarea>
 </div>
 </div>
 </div>
 <div class="form-group">
-<button type="submit" class="btn btn-default">Update</button>
-<button  class="btn btn-default">Delete this entry</button>
+  <button type="submit"  name="update" class="btn btn-default">Update</button>
+  <button  type="submit" name="delete" class="btn btn-default">Delete this entry</button>
 </div>
 </form>
 </div>

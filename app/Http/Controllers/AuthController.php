@@ -77,7 +77,8 @@ function getHome(){
   {
     $email=Session::get('email');
     $user_details=ou_user::where('email',$email)->first();
-    $publication_count=ou_publication::count(); 
+    $edit_content=ou_user_content::where('email',$email)->first();
+    $publication_count=ou_publication::count();
     if($publication_count==1)
     {
     $user_publication=ou_publication::where('email',$email)->first();
@@ -85,7 +86,8 @@ function getHome(){
     else {
     $user_publication=ou_publication::where('email',$email)->get();
     }
-    return view('home')->with('user',$user_details)->with('user_publications',$user_publication)->with('publication_count',$publication_count);
+    return view('home')->with('user',$user_details)->with('user_publications',$user_publication)
+              ->with('publication_count',$publication_count)->with('edit_content',$edit_content);
   }
   else {
   return redirect()->route('/')->with('info','Please Signin to continue.');
